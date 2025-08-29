@@ -10,15 +10,19 @@
 
 
 ## 功能列表
-1. **某云盘TV授权**
+1. **随机字符串生成器**
+   - 生成安全可靠的随机字符串，支持多种字符集配置和批量生成
+2. **某云盘TV授权**
    - 获取某网盘TV端的授权令牌
-2. **挪车码牌生成**
+3. **挪车码牌生成**
    - 生成挪车码牌，方便他人联系车主
-3. **二维码生成**
+4. **二维码生成**
    - 生成自定义二维码
-4. **JSON格式化工具**
+5. **JSON格式化工具**
    - JSON处理工具，支持格式化、压缩、验证和统计分析
-5. **敬请期待**
+6. **随机字符串生成器**
+- 生成安全可靠的随机字符串，支持多种字符集和自定义配置
+7. **敬请期待**
    - 更多工具正在开发中...
 
 ## 部署
@@ -48,6 +52,10 @@ docker run --name=i-tools -d -p 3000:3000 ghcr.io/ilay1678/i-tools:latest
 ```
 docker run --name=i-tools -d -p 3000:3000 docker.cnb.cool/ilay1678/mirrors/i-tools:latest 
 ```
+
+## 自动同步最近更改
+
+在创建的仓库中启用本仓库自带的 GitHub Actions 自动同步工作流Upstream Sync（见 `.github/workflows/sync.yml`）。
 
 ## Stargazers over time
 [![Stargazers over time](https://starchart.cc/iLay1678/i-tools.svg?variant=adaptive)](https://starchart.cc/iLay1678/i-tools)
