@@ -9,7 +9,6 @@ import {
   Space,
   Button,
   Avatar,
-  Badge,
   Flex,
 } from "antd";
 import {
@@ -20,9 +19,9 @@ import {
   CodeOutlined,
   CloudOutlined,
   CustomerServiceOutlined,
-  ToolOutlined,
   AppstoreOutlined,
   ThunderboltOutlined,
+  ScissorOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 import { useState } from "react";
@@ -42,6 +41,18 @@ interface Tool {
 }
 
 const tools: Tool[] = [
+  {
+    id: "text-formatter",
+    title: "文字格式化工具",
+    description:
+      "快速清理复制文本的格式、空格和换行符，去除多余的格式信息，还原纯净的文字内容，适用于处理从Word、PDF或网页复制的文本",
+    icon: <ScissorOutlined />,
+    href: "/text-formatter",
+    status: "available",
+    category: "encoding",
+    tags: ["文字格式化", "去格式", "文本清理", "去空格"],
+    color: "#eb2f96",
+  },
   {
     id: "random-string",
     title: "随机字符串生成器",
@@ -141,7 +152,7 @@ export default function HomePage() {
   const categories = Array.from(new Set(tools.map(tool => tool.category)));
 
   return (
-    <div className="homepage-container" style={{ maxWidth: 1200, margin: '0 auto', padding: '24px' }}>
+    <div className="homepage-container" style={{ maxWidth: 1200, margin: "0 auto", padding: "24px" }}>
       {/* 顶部标题区域 */}
       <div style={{ textAlign: "center", marginBottom: 48 }}>
         <Title
@@ -153,7 +164,7 @@ export default function HomePage() {
             background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
             WebkitBackgroundClip: "text",
             WebkitTextFillColor: "transparent",
-            backgroundClip: "text"
+            backgroundClip: "text",
           }}
         >
           🛠️ 爱拓工具箱
@@ -163,7 +174,7 @@ export default function HomePage() {
             fontSize: "18px", 
             color: "#6b7280",
             display: "block",
-            marginBottom: 24 
+            marginBottom: 24, 
           }}
         >
           精心收集和开发的实用在线工具集合，让您的工作和生活更加便捷高效
@@ -247,15 +258,15 @@ export default function HomePage() {
                     border: "1px solid #f0f0f0",
                     transition: "all 0.3s ease",
                     position: "relative",
-                    overflow: "hidden"
+                    overflow: "hidden",
                   }}
                   styles={{ 
                     body: {
                       padding: "24px",
                       height: "100%",
                       display: "flex",
-                      flexDirection: "column"
-                    }
+                      flexDirection: "column",
+                    },
                   }}
                 >
                   {/* 工具头部 */}
@@ -276,7 +287,7 @@ export default function HomePage() {
                             margin: 0, 
                             fontSize: "16px",
                             fontWeight: 600,
-                            lineHeight: 1.3
+                            lineHeight: 1.3,
                           }}
                         >
                           {tool.title}
@@ -293,7 +304,7 @@ export default function HomePage() {
                           border: "none",
                           backgroundColor: `${tool.color}15`,
                           color: tool.color,
-                          margin: 0
+                          margin: 0,
                         }}
                       >
                         {categoryConfig[tool.category]?.name || tool.category}
@@ -316,7 +327,7 @@ export default function HomePage() {
                         display: "-webkit-box",
                         WebkitLineClamp: 3,
                         WebkitBoxOrient: "vertical",
-                        overflow: "hidden"
+                        overflow: "hidden",
                       }}
                     >
                       {tool.description}
@@ -336,7 +347,7 @@ export default function HomePage() {
                             backgroundColor: "#f5f5f5",
                             color: "#666",
                             margin: 0,
-                            padding: "2px 6px"
+                            padding: "2px 6px",
                           }}
                         >
                           {tag}
@@ -360,7 +371,7 @@ export default function HomePage() {
                         borderColor: tool.status === "available" ? tool.color : "#d9d9d9",
                         color: tool.status === "available" ? "#fff" : "#999",
                         fontWeight: 500,
-                        fontSize: "14px"
+                        fontSize: "14px",
                       }}
                     >
                       {tool.status === "available" ? "立即使用" : "敬请期待"}
@@ -399,7 +410,7 @@ export default function HomePage() {
                   border: `1px solid ${config.color}20`,
                   backgroundColor: `${config.color}08`,
                   cursor: "pointer",
-                  transition: "all 0.3s ease"
+                  transition: "all 0.3s ease",
                 }}
               >
                 <Avatar
@@ -407,7 +418,7 @@ export default function HomePage() {
                   icon={config.icon}
                   style={{
                     backgroundColor: config.color,
-                    marginBottom: 8
+                    marginBottom: 8,
                   }}
                 />
                 <Title level={5} style={{ margin: 0, fontSize: "14px" }}>
@@ -429,7 +440,7 @@ export default function HomePage() {
           borderRadius: 12,
           background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)",
           border: "1px solid #e2e8f0",
-          textAlign: "center"
+          textAlign: "center",
         }}
         styles={{ body: { padding: "32px" } }}
       >
